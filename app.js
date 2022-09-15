@@ -1,8 +1,9 @@
 
 var btnTranslate = document.querySelector("#btn-tanslate");
 var txtInput = document.querySelector('#txt-input');
-var trans = document.querySelector("input [name ='translator']");
-console.log(trans);
+var outPutDiv = document.querySelector('#output');
+
+
 
 btnTranslate.addEventListener("click", clicka);
 
@@ -14,7 +15,10 @@ function hover(){
 
 function clicka(){
     console.log(`My name is ${txtInput.value}`)
-    console.log("Clicked");
-};
+    outPutDiv.innerHTML = txtInput.value + 'Good Morning'; 
+}
 
+var url = "https://lessonfourapi.tanaypratap.repl.co/translate/yoda.json?text=Venkatesh"
 
+fetch(url).then(function responseHandler(response){return response.json() });
+.then(function logJSON(json){console.log(json)});
